@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+	<ui:insert name="header">
+		<ui:include src="/WEB-INF/template.xhtml" />
+	</ui:insert>
+	<link rel="stylesheet" href="resources/css/bootstrap.css" />
+	<link rel="stylesheet" href="resources/css/font-awesome.css" />
+	<link rel="stylesheet" href="resources/css/style.css" />
+</h:head>
+<h:body >
+	<br></br>
+	<div class="container">
+		<div class="row ">
+				<div class="col-md-8" style="width:500px ;left:200px;top:50px;height:400px;border-spacing: 10px;">
+				<div class="panel panel-primary">
+					<div class="panel panel-heading">Ajouter collaborateur</div>
+					<div class="panel panel-body">
+					<h:form>
+						<table>
+							<tr>
+				<td style="width:150px;">Matricule</td>
+				<td width="300px"><b:inputText id="matricule" value="#{collaborateur.matricule}"  span="10" required="true"></b:inputText></td>
+							</tr>
+							<tr>
+				<td >Mot de passe</td>
+				<td><b:inputText type="password" id="mdp" value="#{collaborateur.mdp}" span="10" required="true"></b:inputText>
+								</td>
+							</tr>
+							<tr>
+				<td >Nom</td>
+				<td><b:inputText id="nom" value="#{collaborateur.nom}" span="10" required="true"></b:inputText>
+								</td>
+							</tr>
+							<tr>
+				<td >Prenom </td>
+				<td><b:inputText id="prenom" value="#{collaborateur.prenom}" span="10" required="true"></b:inputText></td>
+							</tr>
+							<tr>
+				<td >Email</td>
+				<td><b:inputText type="email" id="email" value="#{collaborateur.email}" span="10" required="true"></b:inputText></td>
+							</tr>
+							<tr>
+				<td >Role</td>
+				<td><b:inputText id="role" value="#{collaborateur.role}" span="10" required="true"></b:inputText>
+								</td>
+							</tr>
+							<tr>
+				<td >Statut</td>
+				<td><b:inputText id="statut" value="#{collaborateur.statut}" span="10" required="true"></b:inputText></td>
+							</tr>
+							<tr>
+				<td >Date Création</td>
+				<td ><b:datepicker id="dateCreation" value="#{collaborateur.dateCreation}" pattern="MM/dd/yyyy" span="10" required="true">
+				     </b:datepicker>
+								</td>
+							</tr>
+						</table>
+						<br/>
+						<b:column span="3" offset="8">
+	<b:commandButton action="#{pointageservice.addCollaborateur(collaborateur)}" class="btn btn-success btn-sm" value="Add">
+	</b:commandButton>
+						</b:column>
+						<b:column span="3" offset="8">
+	<b:commandButton action="#{pointageservice.updateCollaborateur(collaborateur)}" class="btn btn-success btn-sm" value="Update">
+	</b:commandButton>
+						</b:column>
+						</h:form>
+					</div>
+				</div>
+		</div>
+	</div>
+	</div>
+	<br></br>
+</h:body>
+</html>

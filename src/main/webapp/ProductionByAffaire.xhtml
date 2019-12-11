@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<ui:insert name="header">
+		<ui:include src="/WEB-INF/template.xhtml" />
+	</ui:insert>
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"></link>
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+	<link rel="stylesheet" href="resources/css/bootstrap.css" />
+	<link rel="stylesheet" href="resources/css/font-awesome.css" />
+	<link rel="stylesheet" href="resources/css/style.css" />
+</h:head>
+<h:body>
+<h:form>
+ <p:panel id="add" header="Production By affaires">
+           
+<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+        <p:outputLabel for="activite" value="Activite: " />
+           <p:selectOneMenu id="activite" value="#{piecharts.activite}">  
+            <p:ajax update="MyPie" />       
+            <f:selectItems value="#{piecharts.lists}" />
+            
+        </p:selectOneMenu>
+</h:panelGrid>
+
+
+          <p:chart type="pie" id="MyPie" model="#{piecharts.ProdByAffaire()}" style="height:400px;width:100%"/>
+                     <h:outputScript>
+			                        function chartExtender() {        
+			                         // this = chart widget instance        
+			                         // this.cfg = options      
+			                         this.cfg.seriesDefaults.rendererOptions.varyBarColor = true;
+			                        }
+			                        </h:outputScript>
+          </p:panel>
+</h:form>
+</h:body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+ <link rel="stylesheet" href="resources/css/bootstrap.css" />
+	<link rel="stylesheet" href="resources/css/font-awesome.css" />
+	<link rel="stylesheet" href="resources/css/style.css" />
+	 <style>
+	.Bimage{
+     background-image:url(#{request.contextPath}/resources/images/img.jpg);
+     
+      
+ }
+	</style> 
+       <!--      <style type="text/css">
+                .ui-widget{font-size:100% !important;}
+                .ui-layout-unit-content{background-image:url('resources/images/img.jpg');}
+            </style>-->
+</h:head > 
+<h:body class="Bimage">
+<!-- <p:layout fullPage="true">  
+  
+    
+    <p:layoutUnit position="center">  
+        <h:form>  
+            This fullPage layout consists of five different layoutUnits which are resizable and closable by default.  
+  
+        </h:form>  
+    </p:layoutUnit>  
+  
+</p:layout>  --> 
+
+<div class="layout-wrapper">
+        <div class="layout-content">
+            <ui:insert name="content"></ui:insert>
+        </div>
+
+   </div>
+ <div>
+<h:form>  
+    <p:growl id="messages"/>
+ 
+    <p:menubar styleClass="ui-menubar" class="menubar">
+        <p:submenu  label="Pointage" icon="pi pi-file">
+            <p:menuitem  value="Consulter Pointage" url="ListePointage.xhtml"/>
+            <p:menuitem value="Ajouter Pointage" url="AddRowPointage.xhtml" />
+        </p:submenu>
+ 
+        <p:submenu label="Collaborateur" icon="pi pi-pencil">
+            <p:menuitem value="List Collaborateur" url="ListCollaborateur.xhtml" />
+            <p:menuitem value="Créer Collaborateur" url="Collaborateur.xhtml" />
+        </p:submenu>
+ 
+        <p:submenu label="Affaire" icon="pi pi-pencil">
+            <p:menuitem value="Créer Affaire" url="Affaire.xhtml" />
+            <p:menuitem value="Désactiver Affaire" url="ListAffaire.xhtml" />
+        </p:submenu>
+ 
+        <p:submenu label="Graphes" icon="pi pi-cog">
+        
+           <p:menuitem value="ProductionByAffaire" url="ProductionByAffaire.xhtml" />
+            <p:menuitem value="CollaborateurByAffaire" url="CollaborateurByAffaire.xhtml" />
+            
+            </p:submenu>
+            
+ 
+        <f:facet name="options">
+            <h:outputLink value="${request.contextPath}/j_spring_security_logout">logout</h:outputLink>
+
+        </f:facet>
+    </p:menubar>
+</h:form>
+</div>
+</h:body>
+</html>

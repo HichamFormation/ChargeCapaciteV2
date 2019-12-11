@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+    <ui:insert name="header" >
+			  <ui:include src="/WEB-INF/template.xhtml" />
+	</ui:insert>
+	<style>
+	.ui-datatable thead th {
+    background-image: none !important;
+    background-color: var(--red) !important;
+    color: var(--secondary-color) !important;
+}
+	</style>
+</h:head>
+<h:body>
+ 	<br/>
+ 	
+ 	<style type="text/css">
+    .ui-datatable .ui-datatable-header {
+        text-align: right !important;
+    }
+     
+    .ui-button-text-only .ui-button-text {
+        padding: 0.3em 0.4em;
+    }
+     
+    .ui-selectcheckboxmenu-panel .ui-selectcheckboxmenu-header .ui-chkbox {
+        visibility: hidden;
+    }
+     
+    .ui-filter-column .ui-column-customfilter .custom-filter {
+        width: 100%;
+        box-sizing: border-box;
+    }
+     
+    .year-spinner input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+</style>
+ 	
+ 
+  <h3 style="margine-top: 1"></h3>
+    <h:form id="form">
+    
+ 	<b:row styleClass="show-grid">
+ 	<b:column span="10" offset="1" >
+		<p:growl id="msgs" showDetail="true" />
+		
+        <p:dataTable class ="ui-datatable" value="#{pointageservice.listPointage()}" var="pointage" widgetVar="pointageTable" excel="true"   
+                 emptyMessage="aucun pointage effectué sous cette critère" filteredValue="#{checkPointage.filteredPointage}" editable="true">
+                 
+                 
+                 
+        <p:column filterBy="#{pointage.collaborateurs.matricule}" headerText="N° Matricule">
+            <h:outputText value="#{pointage.collaborateurs.matricule}" />
+        </p:column>
+                 
+            <p:column>
+                <f:facet name="header">Affaire </f:facet>
+                #{pointage.affaires.id_Affaire}
+            </p:column>            
+           
+            <p:column>
+                <f:facet name="header">Lun </f:facet>
+                #{pointage.j1}
+            </p:column>
+            
+            <p:column>
+                <f:facet name="header">Mar </f:facet>
+                #{pointage.j2}
+            </p:column>>            
+            
+            <p:column>
+                <f:facet name="header">Mer </f:facet>
+                #{pointage.j3}
+            </p:column>            
+            
+            <p:column>
+                <f:facet name="header">Jeu </f:facet>
+                #{pointage.j4}
+            </p:column>
+ 
+            <p:column>
+                <f:facet name="header">Ven </f:facet>
+                #{pointage.j5}
+            </p:column>
+            
+            <p:column>
+                <f:facet name="header">Sam </f:facet>
+                #{pointage.j6}
+            </p:column>
+            
+            <p:column>
+                <f:facet name="header">Dim </f:facet>
+                #{pointage.j7}
+            </p:column>
+            
+            
+            		<p:column headerText="Envoyer msg" style="width:80px" font="color:black">
+				
+                   <p:commandLink   style="margin-right:20px;">
+                        <h:outputText value="msg" />
+                   </p:commandLink>
+
+        
+                  
+			</p:column>
+    
+      
+            
+        </p:dataTable>
+        	</b:column>
+ 	</b:row>
+    </h:form>
+    
+
+    
+</h:body>
+</html>

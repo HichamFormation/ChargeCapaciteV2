@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	
+<h:head>
+	<ui:insert name="header" >
+			  <ui:include src="/WEB-INF/template.xhtml" />
+		</ui:insert>
+</h:head>
+<h:body>
+	
+<br></br>
+	<h:form>
+		<b:container layout="fluid">
+		<b:panel title="Création Affaire" look="primary">
+		<table>
+		
+			<tr>
+				<td style="width:150px;"><label>Id Affaire</label></td>
+				<td><b:inputText id="id_Affaire" value="#{affaire.id_Affaire}"></b:inputText>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><label>Nom Affaire</label></td>
+				<td><b:inputText id="nom_Affaire" value="#{affaire.nom_Affaire}"></b:inputText>
+				</td>
+			</tr>
+
+			<tr>
+				<td><label>Activité</label></td>
+				<td><b:inputText id="activite" value="#{affaire.activite}"></b:inputText>
+				</td>
+			</tr>
+	
+				<tr>
+				<td><label>Service</label></td>
+				<td><b:inputText id="service" value="#{affaire.service}"></b:inputText>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><label>Date Création</label></td>
+				<td><b:datepicker id="dateCreation" value="#{affaire.dateCreation}"  pattern="MM/dd/yyyy HH:mm:ss"></b:datepicker>
+				</td>
+			</tr>			
+						
+			<tr>
+			 <td></td>
+				<td colspan="2"><b:commandButton
+						action="#{pointageservice.addAffaire(affaire)}" value="Ajouter" look="success" iconAwesome="fa-plus"></b:commandButton>
+				</td>
+			</tr>
+		</table>
+		</b:panel>
+	</b:container>
+	</h:form>
+	<br></br>
+
+</h:body>
+</html>
